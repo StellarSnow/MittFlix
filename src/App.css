@@ -209,6 +209,10 @@ a {
   margin-top: 140px;
 }
 
+.MainPage:first-of-type {
+  margin-top: 140px;
+}
+
 .navigation ul {
   display: flex;
   height: 37px;
