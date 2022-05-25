@@ -1,10 +1,10 @@
 import Movie from "./Movie";
 
-const TitleList = () => {
+const TitleList = ({providerName}) => {
   return (
     <div className="titleList">
       <div className="title">
-        <h1>Netflix</h1>
+        <h1>{providerName}</h1>
         <div className="titles-wrapper">
           <Movie />
           <Movie />
