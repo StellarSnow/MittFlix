@@ -1,4 +1,8 @@
+import { useParams } from "react-router-dom";
+
 const DetailsPage = () => {
+  const { detailsId } = useParams();
+
   return (
     <div className="show-details">
       <img src="https://image.tmdb.org/t/p/original/daXzoOWNBwSoG03RFh5tEqzl1sH.jpg" alt="" />
