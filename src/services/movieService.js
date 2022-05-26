@@ -13,7 +13,7 @@ export const getMovies = async () => {
 }
 
 const getMoviesFromProvider = async (provider) => {
-  const URL = baseURL + apiKey + `&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false&with_watch_providers=${provider}&watch_region=CA&with_watch_monetization_types=flatrate&with_status=0&with_type=0`
+  const URL = baseURL + apiKey + `&language=en-US&sort_by=popularity.desc&with_watch_providers=${provider}&watch_region=CA`
   const response = await fetch(URL)
   const results = await response.json();
 

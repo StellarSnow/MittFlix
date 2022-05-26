@@ -6,7 +6,7 @@ const TitleList = ({providerMovies, title}) => {
       <div className="title">
         <h1>{title}</h1>
         <div className="titles-wrapper">
-          {providerMovies.map(providerMovie =>  <Movie /> )}      
+          {providerMovies.map(providerMovie =>  <Movie providerMovie={providerMovie} /> )}      
         </div>
       </div>
     </div>
