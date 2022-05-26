@@ -9,7 +9,6 @@ const Header = () => {
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    console.log(searchText);
   }
 
   return (
