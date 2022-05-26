@@ -3,7 +3,13 @@ const apiKey = 'api_key=db250fbe8771bb7fbd7907d266a5c282';
 
 export const getMovies = async () => {
   return Promise.all([getMoviesFromProvider(8), getMoviesFromProvider(230), getMoviesFromProvider(337), getMoviesFromProvider(350)])
-    .then((results) => results);
+    .then((results) => {
+      const movies = [];
+
+      results.map(result => movies.push(result.results));
+      
+      return movies;
+    });
 }
 
 const getMoviesFromProvider = async (provider) => {
