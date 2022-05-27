@@ -1,16 +1,25 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { getSpecificMovie } from "../services/movieService"; 
 
 const DetailsPage = () => {
   const { detailsId } = useParams();
 
+  const [movie, setMovie] = useState({});
+
+  useEffect(() => {
+    getSpecificMovie(detailsId).then(movie => {
+      setMovie({...movie, backdrop: `https://image.tmdb.org/t/p/original/${movie.backdrop_path}`});
+    })
+  }, [detailsId]);
+
   return (
     <div className="show-details">
-      <img src="https://image.tmdb.org/t/p/original/daXzoOWNBwSoG03RFh5tEqzl1sH.jpg" alt="" />
+      <img src={movie.backdrop} alt="" />
       <div className="show-details-inner">
-        <h1>Love, Death &amp; Robots</h1>
+        <h1>{movie.name}</h1>
         <div className="description">
-          Terrifying creatures, wicked surprises and dark comedy converge in this NSFW anthology of animated stories presented by Tim Miller and David
-          Fincher.
+          {movie.overview}
         </div>
         <button className="add-to-watchlist">+ Add to watch list</button>
       </div>
