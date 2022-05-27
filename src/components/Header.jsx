@@ -19,7 +19,6 @@ const Header = () => {
     location.search = searchText;
     
     navigate(location.pathname + location.search);
-    console.log('do i get here?');
   }
 
   return (
