@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import DetailsPage from './components/DetailsPage';
 import SearchPage from "./components/SearchPage";
+import MyWatchListPage from './components/MyWatchListPage';
 
 function App() {
   const [allMovies, setAllMovies] = useState([]);
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/" element={<MainPage allMovies={allMovies} />} />
           <Route exact path="/details/:detailsId" element={<DetailsPage />} />
           <Route exact path="/search" element={<SearchPage />} />
+          <Route exact path="/my-watch-list" element={<MyWatchListPage />} />
         </Routes>
       </Router>
     </div>

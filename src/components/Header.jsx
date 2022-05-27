@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 
 const Header = () => {
   const [searchText, setSearchText] = useState('');
@@ -27,7 +27,7 @@ const Header = () => {
       <div id="navigation" className="navigation">
         <nav>
           <ul>
-            <li><a href="/my-watch-list">Watch List</a></li>
+            <li><Link to="/my-watch-list">Watch List</Link></li>
           </ul>
         </nav>
       </div>
