@@ -1,4 +1,4 @@
-const baseURL = 'https://api.themoviedb.org/3/discover/tv?';
+const baseURL = 'https://api.themoviedb.org/3/';
 const apiKey = 'db250fbe8771bb7fbd7907d266a5c282';
 
 export const getMovies = async () => {
@@ -13,7 +13,7 @@ export const getMovies = async () => {
 }
 
 const getMoviesFromProvider = async (provider) => {
-  const URL = baseURL + 'api_key=' + apiKey + `&language=en-US&sort_by=popularity.desc&with_watch_providers=${provider}&watch_region=CA`
+  const URL = `${baseURL}discover/tv?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&with_watch_providers=${provider}&watch_region=CA`;
   const response = await fetch(URL)
   const results = await response.json();
 
@@ -21,9 +21,13 @@ const getMoviesFromProvider = async (provider) => {
 }
 
 export const getSpecificMovie = async (id) => {
-  const URL = `https://api.themoviedb.org/3/tv/${id}?api_key=${apiKey}&language=en-US`
+  const URL = `${baseURL}tv/${id}?api_key=${apiKey}&language=en-US`
   const response = await fetch(URL)
   const results = await response.json();
   
   return results;
+}
+
+export const searchForMovies = async (searchText) => {
+  //
 }
