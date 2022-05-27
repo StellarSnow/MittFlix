@@ -6,7 +6,7 @@ const Movie = ({providerMovie}) => {
     '/images/image-not-available.jpg' :
     `https://image.tmdb.org/t/p/w500${poster_path}`
 
-  const detailsLink = `details/${id}`;
+  const detailsLink = `/details/${id}`;
 
   return (
     <div class="movie" key={id} id={id}>

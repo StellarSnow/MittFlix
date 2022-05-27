@@ -29,5 +29,9 @@ export const getSpecificMovie = async (id) => {
 }
 
 export const searchForMovies = async (searchText) => {
-  //
+  const URL = `${baseURL}search/tv?api_key=${apiKey}&language=en-US&page=1&query=${searchText}&include_adult=false`
+  const response = await fetch(URL)
+  const results = await response.json();
+  
+  return results.results;
 }

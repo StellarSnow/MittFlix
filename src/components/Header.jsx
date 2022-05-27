@@ -1,14 +1,25 @@
 import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [searchText, setSearchText] = useState('');
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const onSearchChangeHandler = (event) => {
-    setSearchText(event.target.value);
+    const search = event.target.value.trimStart();
+    
+    setSearchText(search);
   }
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
+
+    location.pathname = '/search?query=';
+    location.search = searchText;
+    
+    navigate(location.pathname + location.search);
+    console.log('do i get here?');
   }
 
   return (
