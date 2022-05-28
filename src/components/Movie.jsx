@@ -1,12 +1,17 @@
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from "react";
 
-const Movie = ({providerMovie}) => {  
+const Movie = ({providerMovie, dispatch}) => {  
   const {id, poster_path, name, vote_average, overview} = providerMovie;
   const posterPath = poster_path === null ?
     '/images/image-not-available.jpg' :
     `https://image.tmdb.org/t/p/w500${poster_path}`
 
   const detailsLink = `/details/${id}`;
+
+  const onWatchListClickHandler = () => {
+    dispatch({type: 'toggleWatchListItem', payload: providerMovie});
+  }
 
   return (
     <div class="movie" key={id} id={id}>
@@ -20,7 +25,7 @@ const Movie = ({providerMovie}) => {
           </div>
         </div>
       </Link>
-      <div data-toggled="false" class="listToggle">
+      <div data-toggled="false" class="listToggle" onClick={onWatchListClickHandler}>
         <div><i class="fa fa-fw fa-plus"></i><i class="fa fa-fw fa-check"></i></div>
       </div>
     </div>
