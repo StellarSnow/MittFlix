@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from "react";
 
-const Movie = ({providerMovie, dispatch}) => {  
+const Movie = ({providerMovie, dispatch, isOnWatchList}) => {  
   const {id, poster_path, name, vote_average, overview} = providerMovie;
   const posterPath = poster_path === null ?
     '/images/image-not-available.jpg' :
@@ -25,7 +24,7 @@ const Movie = ({providerMovie, dispatch}) => {
           </div>
         </div>
       </Link>
-      <div data-toggled="false" class="listToggle" onClick={onWatchListClickHandler}>
+      <div data-toggled={isOnWatchList(id)} class="listToggle" onClick={onWatchListClickHandler}>
         <div><i class="fa fa-fw fa-plus"></i><i class="fa fa-fw fa-check"></i></div>
       </div>
     </div>
