@@ -8,7 +8,10 @@ const SearchPage = () => {
   const location = useLocation();
   const searchText = (location.search).split('=')[1];
 
-  useEffect(() => {searchForMovies(searchText).then(movies => {setSearchedMovies(movies)})}, [searchText]);
+  useEffect(() => {
+    searchForMovies(searchText).then(movies => {
+      setSearchedMovies(movies)
+  })}, [searchText]);
 
   return (
     <div className="MainPage">
