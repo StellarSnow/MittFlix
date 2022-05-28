@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { searchForMovies } from "../services/movieService";
 import { useLocation } from "react-router-dom";
 
-const SearchPage = () => {
+const SearchPage = ({ dispatch }) => {
   const [searchedMovies, setSearchedMovies] = useState([]);
   const location = useLocation();
   const searchText = (location.search).split('=')[1];
@@ -15,7 +15,7 @@ const SearchPage = () => {
 
   return (
     <div className="MainPage">
-      <TitleList providerMovies={searchedMovies} title={'Results'}/> 
+      <TitleList providerMovies={searchedMovies} title={'Results'} dispatch={dispatch} /> 
     </div>
   );
 }

@@ -22,9 +22,9 @@ function App() {
         <Header />
         <Routes>
           <Route exact path="/" element={<MainPage dispatch={dispatch} />} />
-          <Route exact path="/details/:detailsId" element={<DetailsPage />} />
-          <Route exact path="/search" element={<SearchPage />} />
-          <Route exact path="/my-watch-list" element={<MyWatchListPage />} />
+          <Route exact path="/details/:detailsId" element={<DetailsPage dispatch={dispatch} />} />
+          <Route exact path="/search" element={<SearchPage dispatch={dispatch} />} />
+          <Route exact path="/my-watch-list" element={<MyWatchListPage watchList={watchList} dispatch={dispatch} />} />
         </Routes>
       </Router>
     </div>

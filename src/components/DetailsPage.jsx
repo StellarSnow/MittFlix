@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getSpecificMovie } from "../services/movieService"; 
 
-const DetailsPage = () => {
+const DetailsPage = ({ dispatch }) => {
   const { detailsId } = useParams();
 
   const [movie, setMovie] = useState({});
@@ -13,6 +13,10 @@ const DetailsPage = () => {
     })
   }, [detailsId]);
 
+  const onWatchListClickHandler = () => {
+    dispatch({type: 'toggleWatchListItem', payload: movie});
+  }
+
   return (
     <div className="show-details">
       <img src={movie.backdrop} alt="" />
@@ -21,7 +25,7 @@ const DetailsPage = () => {
         <div className="description">
           {movie.overview}
         </div>
-        <button className="add-to-watchlist">+ Add to watch list</button>
+        <button className="add-to-watchlist" onClick={onWatchListClickHandler}>+ Add to watch list</button>
       </div>
     </div>
   );

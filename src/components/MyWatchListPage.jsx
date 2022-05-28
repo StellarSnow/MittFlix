@@ -1,7 +1,9 @@
-const MyWatchListPage = () => {
+import TitleList from "./TitleList";
+
+const MyWatchListPage = ({ watchList, dispatch }) => {
   return (
     <div className="MainPage">
-      <h1>My Watch List</h1>
+      <TitleList providerMovies={watchList} title={'My Watch List'} dispatch={dispatch}/> 
     </div>
   );
 }
