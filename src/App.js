@@ -16,7 +16,7 @@ function App() {
     localStorage.setItem('WatchListItems', JSON.stringify(watchList));
   }, [watchList]);
 
-  const isOnWatchList = (id) => { console.log('am i here');
+  const isOnWatchList = (id) => {
     const index = watchList.findIndex(movie => movie.id === id);
     const found = (index >=0 ? true : false);
    
