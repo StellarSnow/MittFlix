@@ -1,5 +1,5 @@
 const baseURL = 'https://api.themoviedb.org/3/';
-const apiKey = 'db250fbe8771bb7fbd7907d266a5c282';
+const apiKey = process.env.REACT_APP_TMDB_API_KEY;
 
 export const getMovies = async () => {
   return Promise.all([getMoviesFromProvider(8), getMoviesFromProvider(230), getMoviesFromProvider(337), getMoviesFromProvider(350)])
